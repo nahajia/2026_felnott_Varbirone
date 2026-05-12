@@ -1,0 +1,19 @@
+.kicsinyit{
+    width: 300px;
+}
+.egeszKeret{
+    border:1px solid blue;
+    margin: 20px 50px;
+    text-align: center;
+    box-shadow: 5px 5px 10px yellow;
+    font-size: 150%;
+    color: rgb(4, 4, 103);
+    padding: 20px;
+}
+.kicsinyit:hover{
+    border: dotted 2px orange;
+}
+.szovegecske:hover{
+    letter-spacing: 2px;
+    color:brown;
+}
