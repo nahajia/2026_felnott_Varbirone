@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form onsubmit="adatKezeles(event)">
+        <label for="">Név:</label>
+        <input type="text" id="nev">
+        <br>
+        <label for="">Sportok:</label>
+        <select name="" id="sport">
+            <option value="foci">foci</option>
+            <option value="kosárlabda">kosárlabda</option>
+            <option value="kézilabda">kézilabda</option>
+        </select>
+        <br>
+        <label for="">Szabadidő:</label>
+        <br>
+        <input type="checkbox" name="" id="kerteszkedes">kertészkedés
+        <br>
+        <input type="checkbox" name="" id="sorozatnezes">sorozatnézés
+        <br>
+        <input type="submit" value="Adatok kezelése">
+
+    </form>
+
+    <div id="kimenet"></div>
+    
+
+
+    <script src="alap.js"></script>
+</body>
+</html>
