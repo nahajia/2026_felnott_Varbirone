@@ -1,0 +1,43 @@
+Feladat: Mozi jegyfoglaló űrlap készítése (HTML + JavaScript)
+
+Készíts egy weboldalt, amelyen a felhasználó mozijegyet tud foglalni
+ egy űrlap segítségével, 
+"Foglalás" gomb megnyomására írjon vissza adatokat, számoljon.
+Teljes működő feladat ér pontot!
+
+Az űrlap tartalmazza az alábbi mezőket:
+
+1. Név (szöveges beviteli mező) a vásárló a nevét megadja
+a "Foglalás" gomb megnyomására írja gomb alá a nevet!
+
+2. Film kiválasztása (legördülő lista – legalább 3 film),
+gombnyomásra írja vissza a film címét!
+
+3. Jegyek száma (szám, alap értéke 1, 1-től 10-ig lehessen választani)
+gombnyomásra írja vissza mennyi jegy lett véve és 
+mennyit kell fizetni, ha 1 alap 2D jegy 2000Ft 
+(módosul majd, ha lesz 2D/3D radiogomb)
+
+4. Extrák (jelölőnégyzet, mindkettő kiválasztható):
+Popcorn (1000Ft)
+Üdítő (500Ft)
+Gombnyomásra írja ki, hogy mennyit kell fizetni, 
+pipák esetén minden személy esetén kell számolni plusz költséget
+
+5. Vetítés típusa (rádiógomb, csak egy választható, alapértéke 2D legyen (checked)):
+2D (2000Ft)
+3D (3000Ft)
+
+Dizájnold bootstrap-el, szép legyen!
+
+Minta kimenet 1, Foglalás gomb alatt jelenik meg ( 2D film nincsenek extrák )
+Név: Kovács Anna
+Film: Avatar
+Jegyek száma: 2
+Fizetendő összeg: 4000 Ft
+
+Minta kimenet 2: (Vetítés típusa: 3D, Extra: Üdítő)
+Név: Kiss Dávid
+Film: Batman
+Jegyek száma: 2
+Fizetendő összeg: 7000 Ft
