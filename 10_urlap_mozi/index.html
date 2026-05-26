@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="rendel(event)">
+        <div>
+            <label for="">A megrendelő neve:</label>
+            <input type="text" id="beNev">
+        </div>
+        <div>
+            <label for="">A film címe:</label>
+            <select name="" id="lenyilo">
+                <option value="Mando">Mando</option>
+                <option value="Az ördög Pradat">Az ördög Pradat</option>
+                <option value="Mortal">Mortal</option>
+                <option value="Michael">Michael</option>
+                <option value="Utazó">Utazó</option>
+            </select>
+        </div>
+        <div>
+            <label for="">Dátum:</label>
+            <input type="date" name="" id="beDatum" onchange="rendel(event)">
+        </div>
+        <div>
+            <label for="">Személyek száma:</label>
+            <input type="number" name="" id="beSzemelySzam" min="1" max="30" value="2" >
+        </div>
+        <div>
+            <label for="">Film típusa:</label>
+            <input type="radio" name="tipus" id="ketD" checked><label for="">2D</label>
+            <input type="radio" name="tipus" id="negyD"><label for="">4DX</label>
+
+        </div>
+        <div>
+            <label for="">Extrák:</label>
+            <input type="checkbox" name="" id="bePopcorn"><label for="">Popcorn</label>
+            <input type="checkbox" name="" id="beUdito"><label for="">Üdítő</label>
+            <input type="checkbox" name="" id="beNachos"><label for="">Nachos</label>
+            <input type="checkbox" name="" id="beEnergia" onchange="poenKeszit()" ><label for="" id="feliratEnergia">Energiaital</label>
+            
+
+        </div>
+
+
+    <input type="submit" value="Rendelés">
+
+
+    </form>
+    <div id="kimenet"></div>
+
+    
+
+    <script src="alap.js"></script>
+</body>
+</html>
