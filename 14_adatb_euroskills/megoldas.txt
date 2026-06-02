@@ -1,0 +1,71 @@
+1.
+select *
+from versenyzo
+where versenyzo.pont>750;
+
+2.
+select versenyzo.nev,versenyzo.pont,orszag.orszagNev
+from versenyzo
+inner join orszag
+on orszag.id=versenyzo.orszagId
+where versenyzo.pont>750;
+
+3.
+select versenyzo.nev,versenyzo.pont,orszag.orszagNev,szakma.szakmaNev
+from versenyzo
+inner join orszag
+on orszag.id=versenyzo.orszagId
+inner join szakma
+on szakma.id=versenyzo.szakmaId
+where versenyzo.nev like "%Andrea%";
+
+4.
+select versenyzo.nev,versenyzo.pont,orszag.orszagNev,szakma.szakmaNev
+from versenyzo
+inner join orszag
+on orszag.id=versenyzo.orszagId
+inner join szakma
+on szakma.id=versenyzo.szakmaId
+where orszag.orszagNev="Magyarország"  
+ORDER BY `versenyzo`.`pont` DESC
+limit 1;
+
+5.
+select szakma.szakmaNev,count(szakma.szakmaNev)
+from versenyzo
+inner join orszag
+on orszag.id=versenyzo.orszagId
+inner join szakma
+on szakma.id=versenyzo.szakmaId
+where orszag.orszagNev="Magyarország"  
+GROUP by szakma.szakmaNev
+having count(szakma.szakmaNev)>=2;
+
+6.
+select orszag.orszagNev,avg(versenyzo.pont)
+from versenyzo
+inner join orszag
+on orszag.id=versenyzo.orszagId
+inner join szakma
+on szakma.id=versenyzo.szakmaId  
+GROUP by orszag.orszagNev  
+ORDER BY `avg(versenyzo.pont)` DESC
+
+7.
+select * 
+from versenyzo
+where versenyzo.orszagId = (select orszag.id
+from versenyzo
+inner join orszag
+on orszag.id=versenyzo.orszagId
+inner join szakma
+on szakma.id=versenyzo.szakmaId  
+ORDER BY `versenyzo`.`pont` desc
+limit 1);
+
+8.
+select * 
+from versenyzo
+where versenyzo.pont<(select avg(versenyzo.pont)
+from versenyzo)  
+ORDER BY `versenyzo`.`pont` DESC

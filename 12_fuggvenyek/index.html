@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    function osszead(a,b){
+        return a+b
+    }
+
+    function nagySzamol(x,y,z){
+        if (x>=y && x>=z)
+            return x
+        else if (y>=x && y>=z)
+            return y
+        else if (z>=x && z>=y)
+            return z
+    }
+
+    //bemenet:12345243543543543553453453454353245 kimenet: 132 - jegyek összeg
+    function szummaKiir(be){
+            let osszeg=0
+            for (const elem of be) {
+                osszeg+=parseInt(elem)
+            }
+            return osszeg
+    }
+
+    //------------------------------NYÍL FÜGGVÉNY
+    const szorzatSzamit=(a,b)=>{
+            return a*b
+    }
+
+    //bemenet:Ma kedd van! kimenet: MA KEDD VAN!
+    const nagyraKonvertal=(szoveg)=>{
+        return szoveg.toUpperCase()
+    }
+    //bemenet: mondat, szám kimenet: a mondat számadik szava
+    const szoMegtalal=(mondat,szam)=>{
+        let darabol=mondat.split(" ")
+        if (szam<=0)
+            return "Ilyen sorszámú szó nincs a mondatban!"
+        if (szam>darabol.length)
+            return "Ilyen sorszámú szó nincs a mondatban!"
+        
+        return darabol[szam-1]
+
+    }
+    //bemenet pl. Ez a mai nap nagyon szép nap      kimenet : nagyon
+    const maxMegjelenit=(mondat)=>{
+        let darabol=mondat.split(" ")
+        legh=""
+        for (const elem of darabol) {
+            if (elem.length>legh.length)
+                legh=elem
+        }
+        return legh
+    }
+    //bemenete: tomb kimenet: tomb számainak átlaga
+    const atlagSzamol=(tomb)=>{
+        let osszeg=0
+        tomb.forEach(elem => {
+            osszeg+=elem
+        });
+        return osszeg/tomb.length
+    }
+
+    //----------------------------------------függvény hívások
+    console.log(osszead(2,3))
+    console.log(osszead(5,6))
+
+    console.log(nagySzamol(1,8,15))
+    console.log(nagySzamol(15,8,1))
+    console.log(nagySzamol(1,15,8))
+    console.log(nagySzamol(15,8,15))
+ 
+    console.log(szummaKiir("12345243543543543553453453454353245"))
+    console.log(szummaKiir("666766666777777778888888"))
+
+    console.log(szorzatSzamit(3,4))
+    console.log(nagyraKonvertal("Ma kedd van!"))
+
+    //Ez a mai nap nagyon szép nap    4
+    console.log(szoMegtalal("Ez a mai nap nagyon szép nap",4))
+    console.log(maxMegjelenit("Ez a mai nap nagyon szép nap"))
+    console.log(atlagSzamol([5000000,300000]))
+    let osztondij=[60000,18000,80000]
+    console.log(atlagSzamol(osztondij))
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+select oszlopok
+from tabla 
+inner join tabla
+on kapcsolat
+where feltetel
+group by oszlop
+having feltetel
+order by oszlop
+limit szam
