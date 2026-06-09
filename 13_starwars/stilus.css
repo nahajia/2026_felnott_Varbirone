@@ -1,3 +1,9 @@
 .kisKep{
-    width: 100px;
+    height: 100px;
+}
+.arnyek{
+    box-shadow: 5px 5px 5px blue;
+    margin:5px;
+    text-align: center;
+
 }

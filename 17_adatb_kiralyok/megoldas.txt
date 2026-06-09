@@ -1,0 +1,20 @@
+1.
+select uralkodo.nev,uralkodo.ragnev,hivatal.mettol
+from uralkodo
+inner join hivatal
+on uralkodo.azon=hivatal.uralkodo_az
+WHERE uralkodo.uhaz_az=(select uhaz_az
+from uralkodo
+inner join uralkodohaz
+on uralkodohaz.azon=uralkodo.uhaz_az
+where uralkodo.ragnev="Szent István")  
+ORDER BY `hivatal`.`mettol` ASC
+
+2.
+select uralkodohaz.nev,count(uralkodohaz.azon)
+from uralkodo
+inner join uralkodohaz
+on uralkodohaz.azon=uralkodo.uhaz_az
+GROUP by uralkodohaz.nev  
+ORDER BY `count(uralkodohaz.azon)` DESC
+limit 3;
