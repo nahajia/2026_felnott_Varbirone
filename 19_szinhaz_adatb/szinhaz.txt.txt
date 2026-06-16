@@ -1,0 +1,8 @@
+SELECT * 
+FROM epulet
+INNER JOIN varos
+ON epulet.epulet_varosid=varos.varos_id
+INNER JOIN eloadas
+ON eloadas.eloadas_epuletid=epulet.epulet_id
+INNER JOIN szindarab
+on eloadas.eloadas_szindarabid=szindarab.szindarab_id;
