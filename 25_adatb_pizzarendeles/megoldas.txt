@@ -1,0 +1,11 @@
+select megrendelo.mrendel_nev,varos.varos_nev,megrendelo.mrendel_utcahazszam,sum(pizza.pizza_ar*tetel.tetel_db)
+from varos
+inner join megrendelo
+on varos.varos_id=megrendelo.mrendel_varosid
+inner join rendeles
+on rendeles.rendeles_megrendeloid=megrendelo.mrendel_id
+inner join tetel
+on tetel.tetel_rendelesid=rendeles.rendeles_id
+inner join pizza
+on pizza.pizza_id=tetel.tetel_pizzaid
+GROUP by rendeles.rendeles_id;
