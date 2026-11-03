@@ -30,11 +30,24 @@ namespace ConsoleApp1
                 Console.WriteLine(elem.tipus);
             }
 
-      
-        
-            
 
-            
+            //2017 irod
+            var eredmeny4 = nobelLista.Where(x => x.ev == 2017 && x.tipus == "irodalmi");
+            foreach (var item in eredmeny4)
+            {
+                Console.WriteLine( $"4. feladat:  {item.knev} {item.vnev} ");
+            }
+
+            //tiponkent
+            var eredmeny7 = nobelLista.GroupBy(x => x.tipus).OrderBy(x => x.Count());
+            foreach (var elem in eredmeny7)
+            {
+                Console.WriteLine($" {elem.Key} {elem.Count()} ");
+            }
+
+
+
+
 
             Console.ReadKey();
         }
