@@ -151,6 +151,77 @@ app.post('/kerdesFelvitel', async (req, res) => {
     }
 });
 
+//torolni témát
+app.delete('/temaTorles/:id', async (req, res) => {
+    const {id}=req.params
+    try {
+        const [result] = await pool.query(`
+            delete from tema where tema_id=?
+            `,[id]);
+
+        res.status(200).json({message:"Sikeres törlés"});
+
+    } catch (err) {
+        res.status(500).json({
+            error: 'Adatbázis hiba',
+            err
+        });
+    }
+});
+//modositas, kerdes tabla
+app.put('/kerdesModosit/:id', async (req, res) => {
+    const {id}=req.params
+    const {kerdes_szoveg, kerdes_jo, kerdes_rossz1, kerdes_rossz2, kerdes_rossz3, kerdes_temaid}=req.body
+    try {
+        const [result] = await pool.query(`
+            update kerdes set 
+            kerdes_szoveg=?, 
+            kerdes_jo=?, 
+            kerdes_rossz1=?, 
+            kerdes_rossz2=?, 
+            kerdes_rossz3=?, 
+            kerdes_temaid=?
+            where kerdes_id=?
+            `,[kerdes_szoveg, kerdes_jo, kerdes_rossz1, kerdes_rossz2, kerdes_rossz3, kerdes_temaid,id]);
+
+        res.status(200).json({message:"Sikeres módosítás"});
+
+    } catch (err) {
+        res.status(500).json({
+            error: 'Adatbázis hiba',
+            err
+        });
+    }
+});
+//id alapján kérdést
+app.post('/idKerdez/:id', async (req, res) => {
+    const {id}=req.params
+    try {
+        const [result] = await pool.query(`
+            SELECT * 
+            FROM kerdes
+            where kerdes_temaid=?
+            `,[id]);
+
+        if (result.length === 0) {
+            return res.status(400).json({
+                error: 'Nem található'
+            });
+        }
+
+        res.status(200).json(result);
+
+    } catch (err) {
+        res.status(500).json({
+            error: 'Adatbázis hiba',
+            err
+        });
+    }
+});
+
+
+
+
 // Szerver indítása
 app.listen(port, () => {
     console.log(`Szerver fut: http://localhost:${port}`);
