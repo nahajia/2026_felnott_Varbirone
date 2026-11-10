@@ -219,6 +219,61 @@ app.post('/idKerdez/:id', async (req, res) => {
     }
 });
 
+//jatekos felvitel
+app.post('/jatekosFelvitel', async (req, res) => {
+    const {jatekos_felhnev,jatekos_jelszo,jatekos_admin}=req.body
+    try {
+        const [result] = await pool.query(`
+            insert into jatekos values (null,?,?,?)
+            `,[jatekos_felhnev,jatekos_jelszo,jatekos_admin]);
+
+        res.status(200).json({message:"Sikeres felvitel"});
+
+    } catch (err) {
+        res.status(500).json({
+            error: 'Adatbázis hiba',
+            err
+        });
+    }
+});
+//jatekos torles
+app.delete('/jatekosTorles/:id', async (req, res) => {
+    const {id}=req.params
+    try {
+        const [result] = await pool.query(`
+            delete from jatekos where jatekos_id=?
+            `,[id]);
+
+        res.status(200).json({message:"Sikeres törlés"});
+
+    } catch (err) {
+        res.status(500).json({
+            error: 'Adatbázis hiba',
+            err
+        });
+    }
+});
+
+//jatekos admin jog adás
+app.patch('/jatekosModosit/:id', async (req, res) => {
+    const {id}=req.params
+    const {szam}=req.body
+    try {
+        const [result] = await pool.query(`
+            update jatekos set 
+            jatekos_admin=?
+            where jatekos_id=?
+            `,[szam,id]);
+
+        res.status(200).json({message:"Sikeres módosítás"});
+
+    } catch (err) {
+        res.status(500).json({
+            error: 'Adatbázis hiba',
+            err
+        });
+    }
+});
 
 
 

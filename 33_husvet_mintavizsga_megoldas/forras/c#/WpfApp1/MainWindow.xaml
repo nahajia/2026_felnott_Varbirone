@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Height="419" VerticalAlignment="Bottom">
+        <TabControl HorizontalAlignment="Left" Height="387" Margin="25,10,0,0" VerticalAlignment="Top" Width="746">
+            <TabItem Header="Locsolóversek">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="lenyilo" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="720" SelectionChanged="Lenyilo_SelectionChanged"/>
+                    <Label Content="Stílus" HorizontalAlignment="Left" Margin="78,58,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="adat1" Content="" HorizontalAlignment="Left" Height="26" Margin="153,58,0,0" VerticalAlignment="Top" Width="577" Background="#FFECBF29"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Keresés">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
